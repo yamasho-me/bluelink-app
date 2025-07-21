@@ -51,7 +51,7 @@
 
 #### バックエンド起動
 ```bash
-cd timetable-api
+cd timetable-api 6
 pip install -r requirements.txt
 python src/main.py
 ```
@@ -65,7 +65,7 @@ npm run dev
 
 ### 2. アクセス
 - フロントエンド: http://localhost:5173
-- バックエンド: http://localhost:5000
+- バックエンド: http://localhost:5001
 
 ## 📁 プロジェクト構造
 
