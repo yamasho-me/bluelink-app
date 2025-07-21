@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Layout from './Layout';
 import { User, Edit3, Save, X, Camera, Eye, EyeOff } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -128,29 +129,10 @@ const Profile = ({ user, onLogout }) => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* ヘッダー */}
-      <header className="bg-white shadow-sm border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center space-x-4">
-              <User className="h-8 w-8 text-blue-600" />
-              <h1 className="text-xl font-semibold text-gray-900">BlueLink プロフィール</h1>
-            </div>
-            <div className="flex items-center space-x-4">
-              <span className="text-sm text-gray-600">こんにちは、{user.username}さん</span>
-              <Button onClick={onLogout} variant="outline" size="sm">
-                ログアウト
-              </Button>
-            </div>
-          </div>
-        </div>
-      </header>
-
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        <div className="space-y-6">
-          {/* プロフィール基本情報 */}
-          <Card>
+    <Layout user={user} onLogout={onLogout}>
+      <div className="space-y-6">
+        {/* プロフィール基本情報 */}
+        <Card>
             <CardHeader>
               <div className="flex justify-between items-start">
                 <div>
@@ -343,8 +325,7 @@ const Profile = ({ user, onLogout }) => {
             </CardContent>
           </Card>
         </div>
-      </div>
-    </div>
+    </Layout>
   );
 };
 

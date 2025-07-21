@@ -1,7 +1,7 @@
 import { Link, useLocation } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
-import { Calendar, Users, Search, LogOut, Home } from 'lucide-react'
+import { Calendar, Users, Search, LogOut, Home, User } from 'lucide-react'
 
 const Layout = ({ user, onLogout, children }) => {
   const location = useLocation()
@@ -11,6 +11,7 @@ const Layout = ({ user, onLogout, children }) => {
     { name: 'マイ時間割', href: '/timetable', icon: Calendar },
     { name: '友達リスト', href: '/friends', icon: Users },
     { name: '友達検索', href: '/search', icon: Search },
+    { name: 'プロフィール', href: '/profile', icon: User },
   ]
 
   return (
