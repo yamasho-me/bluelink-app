@@ -36,7 +36,8 @@ if os.environ.get('RENDER'):
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///:memory:'
 else:
     # ローカル環境用
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database/timetable.db'
+    db_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'instance', 'timetable.db')
+    app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{db_path}'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 with app.app_context():
@@ -65,5 +66,5 @@ def serve(path):
 
 if __name__ == '__main__':
     import os
-    port = int(os.environ.get('PORT', 5000))
+    port = int(os.environ.get('PORT', 5001))
     app.run(host='0.0.0.0', port=port, debug=False)
