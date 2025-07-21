@@ -1,13 +1,11 @@
-from flask_sqlalchemy import SQLAlchemy
+from src.models.user import db
 from datetime import datetime
-
-db = SQLAlchemy()
 
 class Profile(db.Model):
     __tablename__ = 'profiles'
     
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False, unique=True)
+    user_id = db.Column(db.String(36), db.ForeignKey('users.id'), nullable=False, unique=True)
     bio = db.Column(db.Text, nullable=True)  # 自己紹介文
     grade = db.Column(db.String(50), nullable=True)  # 学年
     department = db.Column(db.String(100), nullable=True)  # 学部

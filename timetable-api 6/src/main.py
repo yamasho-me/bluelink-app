@@ -6,6 +6,11 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 from flask import Flask, send_from_directory
 from flask_cors import CORS
 from src.models.user import db
+# すべてのモデルをインポートしてテーブル作成を確実にする
+from src.models.timetable import Timetable
+from src.models.friend import Friend
+from src.models.message import Message
+from src.models.profile import Profile
 from src.routes.user import user_bp
 from src.routes.auth import auth_bp
 from src.routes.timetable import timetable_bp
