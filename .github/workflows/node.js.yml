@@ -26,6 +26,13 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm ci
-    - run: npm run build --if-present
-    - run: npm test
+        cache-dependency-path: 'timetable-share/package-lock.json'
+    - name: Install dependencies
+      run: npm ci
+      working-directory: ./timetable-share
+    - name: Build project
+      run: npm run build --if-present
+      working-directory: ./timetable-share
+    - name: Run tests
+      run: npm test
+      working-directory: ./timetable-share
